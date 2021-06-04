@@ -20,11 +20,11 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.c
 
 ADD sh/pptx2png.sh /usr/bin/pptx2png
 ADD sh/run.sh /usr/bin/run.sh
-RUN curl https://storage.googleapis.com/shared-artifact/hwrap -o /usr/bin/hwrap && chmod a+x /usr/bin/hwrap 
+RUN curl https://storage.googleapis.com/nklab-artifacts/hwrap -o /usr/bin/hwrap && chmod a+x /usr/bin/hwrap 
 
 RUN mkdir -p /home/slide2vr && useradd --home-dir /home/slide2vr slide2vr && chown -R slide2vr:slide2vr /home/slide2vr
 USER slide2vr
 WORKDIR /home/slide2vr
 
 ENV PORT=5000
-CMD /usr/bin/hwrap -p $PORT /usr/bin/run.sh
+ENTRYPOINT hwrap -p $PORT /usr/bin/run.sh
