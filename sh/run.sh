@@ -1,9 +1,10 @@
 #!/bin/bash
 
-args=$1
-list=(${args//,/ })
-PPTX_NAME=${list[0]}
-PNG_DIR=${list[1]}
+## Paramaters
+PPTX_NAME=$1
+PNG_DIR=$2
+
+## mamin
 
 echo "PPTX_NAME: "$PPTX_NAME
 echo "PNG_DIR: "$PNG_DIR
